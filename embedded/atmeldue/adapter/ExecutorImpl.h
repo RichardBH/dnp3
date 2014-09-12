@@ -32,6 +32,8 @@ class ExecutorImpl : public openpal::IExecutor
 	
 	void Sleep();
 	
+	bool initialised = 0;	
+
 	protected:
 	
 	bool RunOne();	
@@ -42,8 +44,9 @@ class ExecutorImpl : public openpal::IExecutor
 	
 	bool RunOneTimer();
 	
-	int64_t ticks;	
+	int64_t ticks;
 	
+		
 	openpal::StaticArray<TimerImpl, uint8_t, 5> timers;
 	openpal::StaticQueue<openpal::Action0, uint8_t, 5> work;
 	

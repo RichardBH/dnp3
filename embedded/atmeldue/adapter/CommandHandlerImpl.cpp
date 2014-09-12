@@ -22,10 +22,11 @@
 #include "CommandHandlerImpl.h"
 
 #include "Macros.h"
+#include <arduino.h>
 
 using namespace opendnp3;
 
-namespace arduino
+namespace sam3
 {	
 	CommandStatus CommandHandlerImpl::Supports(const ControlRelayOutputBlock& command, uint16_t index)
 	{
@@ -46,11 +47,14 @@ namespace arduino
 			if(command.functionCode == ControlCode::LATCH_ON)
 			{
 				// TODO Change an LED on the DUE - SET(PORTB, BIT(7)); 
+				digitalWrite(13, LOW);
+			
 				return CommandStatus::SUCCESS;
 			}
 			else if(command.functionCode == ControlCode::LATCH_OFF)
 			{
 				// TODO Change an LED on the DUE - CLEAR(PORTB, BIT(7));
+				digitalWrite(13, HIGH );
 				return CommandStatus::SUCCESS;
 			}
 			else

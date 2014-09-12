@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.2</ProjectVersion>
+    <ToolchainName>com.Atmel.ARMGCC.CPP</ToolchainName>
+    <ProjectGuid>{6c7bddac-5741-40d1-ad16-0a44b94f2cdf}</ProjectGuid>
+    <avrdevice>ATSAM3X8E</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>StaticLibrary</OutputType>
+    <Language>CPP</Language>
+    <OutputFileName>lib$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.a</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AvrGccProjectExtensions>
+    </AvrGccProjectExtensions>
+    <AssemblyName>arduino</AssemblyName>
+    <Name>arduino</Name>
+    <RootNamespace>arduino</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.19.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../cmsis/linkerScripts</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.LibrarySearchPaths>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+      </ArmGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../cmsis/linkerScripts</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.LibrarySearchPaths>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.assembler.debugging.DebugLevel>Default (-g)</armgcccpp.assembler.debugging.DebugLevel>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+        <armgcccpp.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcccpp.preprocessingassembler.debugging.DebugLevel>
+      </ArmGccCpp>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="avr\" />
+    <Folder Include="core_due" />
+    <Folder Include="include\" />
+    <Folder Include="lib" />
+    <Folder Include="source\" />
+    <Folder Include="USB\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arduino.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avr\dtostrf.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avr\dtostrf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avr\pgmspace.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="binary.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="chip.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HardwareSerial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\can.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\dacc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\efc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\emac.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\gpbr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\interrupt_sam_nvic.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\pio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\pio_it.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\pmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\pwmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\rstc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\rtc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\rtt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\spi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\ssc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\tc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\timetick.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\trng.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\twi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\udp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\udphs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\uotghs_device.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\uotghs_host.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\USB_device.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\USB_host.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\wdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="itoa.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="itoa.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Print.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Print.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Printable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Reset.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="reset.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RingBuffer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RingBuffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Scheduler.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Scheduler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Server.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\adc12_sam3u.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\can.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\dacc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\dacc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\efc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\emac.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\gpbr.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\interrupt_sam_nvic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\pio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\pmc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\pwmc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\rstc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\rtc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\rtt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\ssc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\tc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\timetick.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\trng.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\twi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\udp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\udphs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\uotghs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\uotghs_device.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\uotghs_host.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\usart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\wdt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Stream.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Stream.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Tone.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UARTClass.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UARTClass.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Udp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USARTClass.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USARTClass.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USB\CDC.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USB\HID.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USB\USBAPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USB\USBCore.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USB\USBCore.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="USB\USBDesc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="variant.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="variant.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WCharacter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WInterrupts.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WInterrupts.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_analog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_analog.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_constants.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_digital.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_digital.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_pulse.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_pulse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_shift.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wiring_shift.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WMath.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WMath.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WString.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WString.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>

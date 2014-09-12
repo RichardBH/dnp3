@@ -14,6 +14,8 @@
 #include <openpal/container/RingBuffer.h>
 #include <openpal/executor/IExecutor.h>
 
+void personal_func();
+
 class LinkParserImpl : public opendnp3::ILinkRouter
 {
 	public:

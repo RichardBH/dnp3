@@ -1,13 +1,19 @@
 
+#include <arduino.h>
+
 #include "ExecutorImpl.h"
 
 #include "TimerImpl.h"
 
 #include "CriticalSection.h"
 
+#include <include/timetick.h>
+
 using namespace openpal;
 
 ExecutorImpl* gpExecutor = nullptr;
+
+extern uint32_t GetTickCount( void );
 
 /* TODO - ARM specific timer handler
 SIGNAL(TIMER1_COMPA_vect)
@@ -21,7 +27,8 @@ SIGNAL(TIMER1_COMPA_vect)
 
 void ExecutorImpl::Tick()
 {
-	++ticks;	
+//	ticks++;	
+//we are now using the timetick ticks.
 }
 
 void ExecutorImpl::Sleep()
@@ -34,11 +41,13 @@ void ExecutorImpl::Init()
 {		
 	// TODO - enable ARM time interrupts to call the executor tick
  	
-	gpExecutor = this;		
+	gpExecutor = this;	
+	initialised = 1;	
 }
 
 ExecutorImpl::ExecutorImpl() : ticks(0)
 {	
+	initialised = 0;
 	for(uint8_t i = 0; i < timers.Size(); ++i)
 	{
 		idleTimers.Enqueue(&timers[i]);
@@ -49,7 +58,12 @@ MonotonicTimestamp ExecutorImpl::GetTime()
 {	
 	// disable interrupts to ensure atomic access to the 'ticks' variable
 	CriticalSection cs;
-	return MonotonicTimestamp(ticks*10); // every tick represents 10 milliseconds since Init()				
+	volatile uint32_t count = GetTickCount();
+	
+	return MonotonicTimestamp(count); // every tick represents 1 milliseconds
+	
+	//return MonotonicTimestamp(GetTickCount()*10); // every tick represents 10 milliseconds since Init()
+	
 }
 
 ITimer* ExecutorImpl::Start(const TimeDuration& duration, const Action0& action)

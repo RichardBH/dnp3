@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief Syscalls for SAM (GCC).
+ * \brief API for SAM TRNG.
  *
- * Copyright (c) 2011-2013 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -41,10 +41,10 @@
  *
  */
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#ifndef TRNG_H_INCLUDED
+#define TRNG_H_INCLUDED
+
+#include "../chip.h"
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -54,84 +54,13 @@ extern "C" {
 /**INDENT-ON**/
 /// @endcond
 
-#undef errno
-extern int errno;
-extern int _end;
-extern int _ram_end_;
-
-extern caddr_t _sbrk(int incr);
-extern int link(char *old, char *new);
-extern int _close(int file);
-extern int _fstat(int file, struct stat *st);
-extern int _isatty(int file);
-extern int _lseek(int file, int ptr, int dir);
-extern void _exit(int status);
-extern void _kill(int pid, int sig);
-extern int _getpid(void);
-
-extern caddr_t _sbrk(int incr)
-{
-	static unsigned char *heap = NULL;
-	unsigned char *prev_heap;
-	int ramend = (int)&_ram_end_;
-
-	if (heap == NULL) {
-		heap = (unsigned char *)&_end;
-	}
-	prev_heap = heap;
-
-	if (((int)prev_heap + incr) > ramend) {
-		return (caddr_t) -1;	
-	}
-
-	heap += incr;
-
-	return (caddr_t) prev_heap;
-}
-
-extern int link(char *old, char *new)
-{
-	return -1;
-}
-
-extern int _close(int file)
-{
-	return -1;
-}
-
-extern int _fstat(int file, struct stat *st)
-{
-	st->st_mode = S_IFCHR;
-
-	return 0;
-}
-
-extern int _isatty(int file)
-{
-	return 1;
-}
-
-extern int _lseek(int file, int ptr, int dir)
-{
-	return 0;
-}
-
-extern void _exit(int status)
-{
-	printf("Exiting with status %d.\n", status);
-
-	for (;;);
-}
-
-extern void _kill(int pid, int sig)
-{
-	return;
-}
-
-extern int _getpid(void)
-{
-	return -1;
-}
+void trng_enable(Trng *p_trng);
+void trng_disable(Trng *p_trng);
+void trng_enable_interrupt(Trng *p_trng);
+void trng_disable_interrupt(Trng *p_trng);
+uint32_t trng_get_interrupt_mask(Trng *p_trng);
+uint32_t trng_get_interrupt_status(Trng *p_trng);
+uint32_t trng_read_output_data(Trng *p_trng);
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -140,3 +69,5 @@ extern int _getpid(void)
 #endif
 /**INDENT-ON**/
 /// @endcond
+
+#endif /* TRNG_H_INCLUDED */
