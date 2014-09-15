@@ -22,11 +22,11 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
-    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
     <AsfFrameworkConfig>
       <framework-data xmlns="">
         <options />
@@ -39,72 +39,73 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <UseGdb>False</UseGdb>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <ArmGccCpp>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-      <Value>OPENPAL_STRIP_LOGGING</Value>
-    </ListValues>
-  </armgcccpp.compiler.symbols.DefSymbols>
-  <armgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
-      <Value>../../../../cpp/libs/opendnp3/src</Value>
-      <Value>../../../../cpp/libs/openpal/src</Value>
-    </ListValues>
-  </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
-  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.miscellaneous.OtherFlags>--std=c++11</armgcccpp.compiler.miscellaneous.OtherFlags>
-  <armgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.Libraries>
-  <armgcccpp.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>../cmsis/linkerScripts</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.LibrarySearchPaths>
-  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.linker.memorysettings.ExternalRAM>False</armgcccpp.linker.memorysettings.ExternalRAM>
-  <armgcccpp.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
-    </ListValues>
-  </armgcccpp.preprocessingassembler.general.IncludePaths>
-</ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>OPENPAL_STRIP_LOGGING</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+            <Value>../../../../cpp/libs/opendnp3/src</Value>
+            <Value>../../../../cpp/libs/openpal/src</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.miscellaneous.OtherFlags>--std=c++11</armgcccpp.compiler.miscellaneous.OtherFlags>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../cmsis/linkerScripts</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.LibrarySearchPaths>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.linker.memorysettings.ExternalRAM>False</armgcccpp.linker.memorysettings.ExternalRAM>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+      </ArmGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -132,6 +133,8 @@
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
   <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
   <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</armgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <armgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</armgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
   <armgcccpp.compiler.symbols.DefSymbols>
     <ListValues>
       <Value>DEBUG</Value>
@@ -146,13 +149,14 @@
       <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
       <Value>../../../../cpp/libs/opendnp3/src</Value>
       <Value>../../../../cpp/libs/openpal/src</Value>
+      <Value>../../adapter</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize (-O1)</armgcccpp.compiler.optimization.level>
   <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>
   <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
   <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.miscellaneous.OtherFlags>--std=c++11</armgcccpp.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.compiler.miscellaneous.OtherFlags>-DOPENPAL_STRIP_LOGGING -DOPENPAL_MACRO_MAX_ERASURE_SIZE=8 --std=c++11</armgcccpp.compiler.miscellaneous.OtherFlags>
   <armgcccpp.linker.libraries.Libraries>
     <ListValues>
       <Value>libm</Value>
