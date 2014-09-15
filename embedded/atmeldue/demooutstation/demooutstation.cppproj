@@ -18,13 +18,13 @@
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
-    <CacheFlash>false</CacheFlash>
+    <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
     <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
-    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
     <AsfFrameworkConfig>
       <framework-data xmlns="">
         <options />
@@ -50,80 +50,81 @@
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
     <avrtoolinterface>JTAG</avrtoolinterface>
+    <UseGdb>False</UseGdb>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <ArmGccCpp>
-  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-  <armgcc.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>NDEBUG</Value>
-    </ListValues>
-  </armgcc.compiler.symbols.DefSymbols>
-  <armgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
-    </ListValues>
-  </armgcc.compiler.directories.IncludePaths>
-  <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
-  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.symbols.DefSymbols>
-    <ListValues>
-      <Value>F_CPU=84000000L</Value>
-      <Value>ARDUINO=157</Value>
-      <Value>NDEBUG</Value>
-      <Value>OPENPAL_STRIP_LOGGING</Value>
-    </ListValues>
-  </armgcccpp.compiler.symbols.DefSymbols>
-  <armgcccpp.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
-      <Value>../../../../cpp/libs/opendnp3/src</Value>
-      <Value>../../../../cpp/libs/openpal/src</Value>
-      <Value>../../adapter</Value>
-      <Value>../../arduino</Value>
-    </ListValues>
-  </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
-  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcccpp.compiler.optimization.DisableRTTI>False</armgcccpp.compiler.optimization.DisableRTTI>
-  <armgcccpp.compiler.optimization.DisableExceptions>False</armgcccpp.compiler.optimization.DisableExceptions>
-  <armgcccpp.compiler.optimization.EnableLongCalls>False</armgcccpp.compiler.optimization.EnableLongCalls>
-  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
-  <armgcccpp.compiler.miscellaneous.OtherFlags>--std=c++11</armgcccpp.compiler.miscellaneous.OtherFlags>
-  <armgcccpp.linker.libraries.Libraries>
-    <ListValues>
-      <Value>libm</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.Libraries>
-  <armgcccpp.linker.libraries.LibrarySearchPaths>
-    <ListValues>
-      <Value>../cmsis/linkerScripts</Value>
-    </ListValues>
-  </armgcccpp.linker.libraries.LibrarySearchPaths>
-  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
-  <armgcccpp.linker.memorysettings.ExternalRAM>False</armgcccpp.linker.memorysettings.ExternalRAM>
-  <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsam3x8e_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
-  <armgcccpp.preprocessingassembler.general.IncludePaths>
-    <ListValues>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
-      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
-    </ListValues>
-  </armgcccpp.preprocessingassembler.general.IncludePaths>
-</ArmGccCpp>
+        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+        <armgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </armgcc.compiler.symbols.DefSymbols>
+        <armgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcc.compiler.directories.IncludePaths>
+        <armgcc.compiler.optimization.level>Optimize for size (-Os)</armgcc.compiler.optimization.level>
+        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>F_CPU=84000000L</Value>
+            <Value>ARDUINO=157</Value>
+            <Value>NDEBUG</Value>
+            <Value>OPENPAL_STRIP_LOGGING</Value>
+          </ListValues>
+        </armgcccpp.compiler.symbols.DefSymbols>
+        <armgcccpp.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+            <Value>../../../../cpp/libs/opendnp3/src</Value>
+            <Value>../../../../cpp/libs/openpal/src</Value>
+            <Value>../../adapter</Value>
+            <Value>../../arduino</Value>
+          </ListValues>
+        </armgcccpp.compiler.directories.IncludePaths>
+        <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
+        <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+        <armgcccpp.compiler.optimization.DisableRTTI>False</armgcccpp.compiler.optimization.DisableRTTI>
+        <armgcccpp.compiler.optimization.DisableExceptions>False</armgcccpp.compiler.optimization.DisableExceptions>
+        <armgcccpp.compiler.optimization.EnableLongCalls>False</armgcccpp.compiler.optimization.EnableLongCalls>
+        <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.miscellaneous.OtherFlags>--std=c++11</armgcccpp.compiler.miscellaneous.OtherFlags>
+        <armgcccpp.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.Libraries>
+        <armgcccpp.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../cmsis/linkerScripts</Value>
+          </ListValues>
+        </armgcccpp.linker.libraries.LibrarySearchPaths>
+        <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+        <armgcccpp.linker.memorysettings.ExternalRAM>False</armgcccpp.linker.memorysettings.ExternalRAM>
+        <armgcccpp.linker.miscellaneous.LinkerFlags>-Tsam3x8e_flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+        <armgcccpp.preprocessingassembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3xa\include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+            <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+          </ListValues>
+        </armgcccpp.preprocessingassembler.general.IncludePaths>
+      </ArmGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -151,6 +152,8 @@
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
   <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
   <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>True</armgcccpp.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <armgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>True</armgcccpp.compiler.general.ChangeDefaultBitFieldUnsigned>
   <armgcccpp.compiler.symbols.DefSymbols>
     <ListValues>
       <Value>F_CPU=84000000L</Value>
@@ -171,15 +174,11 @@
       <Value>../../arduino</Value>
     </ListValues>
   </armgcccpp.compiler.directories.IncludePaths>
-  <armgcccpp.compiler.optimization.level>Optimize for size (-Os)</armgcccpp.compiler.optimization.level>
   <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
-  <armgcccpp.compiler.optimization.DisableRTTI>False</armgcccpp.compiler.optimization.DisableRTTI>
-  <armgcccpp.compiler.optimization.DisableExceptions>False</armgcccpp.compiler.optimization.DisableExceptions>
-  <armgcccpp.compiler.optimization.EnableLongCalls>False</armgcccpp.compiler.optimization.EnableLongCalls>
+  <armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareDataForGarbageCollection>
   <armgcccpp.compiler.optimization.DebugLevel>Maximum (-g3)</armgcccpp.compiler.optimization.DebugLevel>
   <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
   <armgcccpp.compiler.miscellaneous.OtherFlags>--std=c++11</armgcccpp.compiler.miscellaneous.OtherFlags>
-  <armgcccpp.compiler.miscellaneous.Verbose>True</armgcccpp.compiler.miscellaneous.Verbose>
   <armgcccpp.linker.libraries.Libraries>
     <ListValues>
       <Value>libm</Value>
